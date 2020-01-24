@@ -1,0 +1,14 @@
+<html>
+   <body>
+      <form action = "http://localhost:3000" method = "POST">
+         <p>param1 <input type = "text" name = "one" /></p>
+         <p>param2 <input type = "text" name = "two" /></p>
+         <p>param3 <input type = "text" name = "three" /></p>
+         <p>param4 <input type ="text" name = "four" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+         {% if result %}
+             <p>I predict: {{result}}</p>
+         {% endif %}
+      </form>
+   </body>
+</html>
