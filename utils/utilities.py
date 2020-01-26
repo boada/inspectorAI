@@ -54,8 +54,8 @@ def select_by_date(df, start_date, end_date):
     return df.loc[mask]
 
 def update_grade(y):
-    
     grade_list = ['A','B','C']
+    
     if (y.grade in grade_list):
         return y.grade
     elif (y.grade == 'P') | (y.grade == 'Z'):
@@ -65,3 +65,12 @@ def update_grade(y):
             return 'B'
         else:
             return 'C'
+    elif not np.isnan(y.score):
+        if (y.score >= 0) & (y.score <= 13):
+            return 'A'
+        elif (y.score >= 14) & (y. score <= 27):
+            return 'B'
+        else:
+            return 'C'
+    else:
+        return y.grade
