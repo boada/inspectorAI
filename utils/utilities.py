@@ -40,17 +40,23 @@ def value_heatmap(x, y, xbins, ybins, heatmap):
 
     return heatmap[ybin][xbin]
 
-def select_by_date(df, start_date, end_date):
+def select_by_date(df, start_date=None, end_date=None, date_col=None):
     ''' Returns data from the dataframe between two specific dates '''
     
     
-    g = df.columns.to_series().groupby(df.dtypes).groups
-    type_dict = {k.name: v for k, v in g.items()}
+    if not date_col:
+        g = df.columns.to_series().groupby(df.dtypes).groups
+        type_dict = {k.name: v for k, v in g.items()}
+
+        date_col = type_dict['datetime64[ns]'][0]
     
-    date_col = type_dict['datetime64[ns]'][0]
-    
-    mask = (df[date_col] > start_date) & (df[date_col] <= end_date)
-    
+    if not start_date:
+        mask = df[date_col] <= end_date
+    elif not end_date:
+        mask = df[date_col] > start_date
+    else:
+        mask = (df[date_col] > start_date) & (df[date_col] <= end_date)
+        
     return df.loc[mask]
 
 def update_grade(y):
