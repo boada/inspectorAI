@@ -1,4 +1,4 @@
-TARGET = ["critical"]
+TARGET = "critical"
 DATE = "inspection_date"
 LICENSE = "License"
 INSPECTION_ID = ""
@@ -6,17 +6,26 @@ RESTAURANT_ID = "camis"
 
 FEATURES = [
 #     "pastPHH",
-    "weekday",
+#     "weekday",
 #     "score",
 #     "past_score",
+#     "weekday_enc",
+#     "boro_enc",
+#     "zipcode_enc",
     "past_critical",
     "time_since_last",
     "tmax",
-    "nypd_heat_score",
     "dsny_heat_score",
     "dep_heat_score",
     "dohmh_heat_score"
 ]
+
+CAT_FEATURES = [
+    'boro',
+#     'zipcode',
+    'weekday'
+]
+
 DETAILS = [
     'camis', 'dba', 'boro', 'zipcode', 'cuisine_description',
     'inspection_date', 'action', 'violation_code', 'violation_description',
