@@ -22,7 +22,7 @@ FEATURES = [
 
 CAT_FEATURES = [
     'boro',
-#     'zipcode',
+    'zipcode',
     'weekday'
 ]
 
