@@ -11,7 +11,7 @@ clf_path = 'models/model.pkl'
 with open(clf_path, 'rb') as f:
     model= pickle.load(f)
 
-# argument parsing
+# # argument parsing
 parser = reqparse.RequestParser()
 parser.add_argument('1')
 parser.add_argument('2')
@@ -75,50 +75,50 @@ def home():
 #
 #
 #
-# class predict(Resource):
-#     def get(self):
-#         # use parser and find the user's query
-#         args = parser.parse_args()
-#         one = float(args['1'])
-#         two = float(args['2'])
-#         three = float(args['3'])
-#         four = float(args['4'])
-#
-#         #order matters! check original model for schema
-#         input_vector = np.array([one, two, three, four]).reshape(1,-1)
-#
-#         # make a prediction from model
-#         # prediction = model.predict(inputvector)
-#         pred = model.predict(input_vector)
-#
-#         # create JSON object
-#         output = {'prob_next_organic': int(pred)}
-#
-#         return render_template('index.html', sentiment=int(pred))
-#
-#     def post(self):
-#         # use parser and find the user's query
-#         args = parser.parse_args()
-#         one = float(args['1'])
-#         two = float(args['2'])
-#         three = float(args['3'])
-#         four = float(args['4'])
-#
-#         #order matters! check original model for schema
-#         input_vector = np.array([one, two, three, four]).reshape(1,-1)
-#
-#         # make a prediction from model
-#         # prediction = model.predict(inputvector)
-#         pred = model.predict(input_vector)
-#
-#         # create JSON object
-#         output = {'prob_next_organic': int(pred)}
-#
-#         return render_template('index.html', sentiment=int(pred))
-#
-# # Setup the Api resource routing here
-# # Route the URL to the resource
-# api.add_resource(predict, '/')
+class predict(Resource):
+    def get(self):
+        # use parser and find the user's query
+        args = parser.parse_args()
+        one = float(args['1'])
+        two = float(args['2'])
+        three = float(args['3'])
+        four = float(args['4'])
+
+        #order matters! check original model for schema
+        input_vector = np.array([one, two, three, four]).reshape(1,-1)
+
+        # make a prediction from model
+        # prediction = model.predict(inputvector)
+        pred = model.predict(input_vector)
+
+        # create JSON object
+        output = {'prob_next_organic': int(pred)}
+
+        return render_template('index.html', sentiment=int(pred))
+
+    def post(self):
+        # use parser and find the user's query
+        args = parser.parse_args()
+        one = float(args['1'])
+        two = float(args['2'])
+        three = float(args['3'])
+        four = float(args['4'])
+
+        #order matters! check original model for schema
+        input_vector = np.array([one, two, three, four]).reshape(1,-1)
+
+        # make a prediction from model
+        # prediction = model.predict(inputvector)
+        pred = model.predict(input_vector)
+
+        # create JSON object
+        output = {'prob_next_organic': int(pred)}
+
+        return render_template('index.html', sentiment=int(pred))
+
+# Setup the Api resource routing here
+# Route the URL to the resource
+api.add_resource(predict, '/')
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)
