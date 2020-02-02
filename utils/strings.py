@@ -4,23 +4,23 @@ LICENSE = "License"
 INSPECTION_ID = ""
 RESTAURANT_ID = "camis"
 
+# features that we have built
 FEATURES = [
-#     "pastPHH",
-#     "weekday",
-#     "score",
-#     "past_score",
-#     "weekday_enc",
-#     "boro_enc",
-#     "zipcode_enc",
-    "past_critical",
-    "time_since_last",
-    "tmax",
-    "dsny_heat_score",
-    "dep_heat_score",
-    "dohmh_heat_score"
+ 'tmax',
+ 'tmax_3d',
+ 'time_since_last',
+ 'past_critical',
+ 'past_score',
+ 'dsny_heat_score',
+ 'dep_heat_score',
+ 'dohmh_heat_score',
+ 'is_chain',
+ 'init_inspec'
 ]
 
+# catagorical features that will need to be encoded
 CAT_FEATURES = [
+    'past_grade',
     'boro',
     'zipcode',
     'weekday'
