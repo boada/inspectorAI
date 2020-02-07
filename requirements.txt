@@ -8,3 +8,5 @@ xgboost
 matplotlib
 pandas
 tqdm
+scipy
+gunicorn
