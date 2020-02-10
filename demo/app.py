@@ -30,7 +30,7 @@ predict_parser.add_argument('end_date',
 predict_parser.add_argument('model',
                             type=str,
                             required=False,
-                            choices=['log', 'ada', 'gbt', 'nn', 'rf', 'xgb'],
+                            choices=['log', 'ada', 'gbt', 'rf', 'xgb'],
                             default='rf')
 
 truth_parser = reqparse.RequestParser()
