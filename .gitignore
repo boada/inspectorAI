@@ -129,3 +129,5 @@ dmypy.json
 *.tif
 
 *.xlsx
+
+data/extras/
