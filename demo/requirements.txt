@@ -2,6 +2,6 @@ Flask
 Flask-restplus
 pandas
 gunicorn
-Werkzeug==0.16.0
+Werkzeug==2.2.3
 scipy
 scikit-learn
